@@ -14,13 +14,17 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base w-full">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
+        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between pt-8 pb-16">
           <div>
             <LocalizedClientLink
               href="/"
-              className="font-heading text-4xl tracking-widest text-brand-primary uppercase hover:text-brand-secondary transition-colors"
+              className="flex items-center"
             >
-              HANI
+              <img 
+                src="/images/logo/image-removebg-preview.png" 
+                alt="HANI Footer Logo" 
+                className="h-72 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+              />
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">

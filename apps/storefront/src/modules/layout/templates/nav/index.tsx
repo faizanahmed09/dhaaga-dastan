@@ -25,21 +25,43 @@ export default async function Nav() {
               <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
             </div>
             {/* Desktop Mega Menu Placeholder */}
-            <div className="hidden lg:flex items-center gap-6 font-sans text-xs font-bold uppercase tracking-widest text-brand-primary">
-              <LocalizedClientLink href="/categories/stitched" className="hover:text-brand-secondary transition-colors">Stitched</LocalizedClientLink>
-              <LocalizedClientLink href="/categories/unstitched" className="hover:text-brand-secondary transition-colors">Unstitched</LocalizedClientLink>
-              <LocalizedClientLink href="/categories/lawn" className="opacity-50 cursor-not-allowed">Lawn</LocalizedClientLink>
-              <LocalizedClientLink href="/categories/formals" className="opacity-50 cursor-not-allowed">Formals</LocalizedClientLink>
+            <div className="hidden lg:flex items-center gap-8 font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary">
+              <LocalizedClientLink 
+                href="/store?sort=created_at-desc" 
+                className="relative group/nav py-2 transition-colors hover:text-brand-secondary"
+              >
+                <span>New Arrivals</span>
+                <span className="absolute bottom-0 left-1/2 w-0 h-[1.5px] bg-brand-secondary transition-all duration-300 -translate-x-1/2 group-hover/nav:w-full" />
+              </LocalizedClientLink>
+              <LocalizedClientLink 
+                href="/categories/stitched" 
+                className="relative group/nav py-2 transition-colors hover:text-brand-secondary"
+              >
+                <span>Stitched</span>
+                <span className="absolute bottom-0 left-1/2 w-0 h-[1.5px] bg-brand-secondary transition-all duration-300 -translate-x-1/2 group-hover/nav:w-full" />
+              </LocalizedClientLink>
+              <LocalizedClientLink 
+                href="/categories/unstitched" 
+                className="relative group/nav py-2 transition-colors hover:text-brand-secondary"
+              >
+                <span>Unstitched</span>
+                <span className="absolute bottom-0 left-1/2 w-0 h-[1.5px] bg-brand-secondary transition-all duration-300 -translate-x-1/2 group-hover/nav:w-full" />
+              </LocalizedClientLink>
             </div>
           </div>
 
           <div className="flex items-center h-full">
               <LocalizedClientLink
                 href="/"
-                className="font-heading text-3xl font-bold tracking-widest text-brand-primary uppercase hover:text-brand-secondary transition-colors"
+                className="group flex flex-col items-center"
                 data-testid="nav-store-link"
               >
-                HANI
+                <span className="font-heading text-4xl font-extrabold tracking-[0.4em] text-brand-primary uppercase transition-all duration-500 group-hover:text-brand-secondary">
+                  HANI
+                </span>
+                <span className="text-[8px] font-bold tracking-[0.6em] text-brand-secondary/60 uppercase mt-1">
+                  Luxury Collections
+                </span>
               </LocalizedClientLink>
           </div>
 

@@ -24,29 +24,28 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   const initialImage = thumbnail || images?.[0]?.url
 
   return (
-    <Container
+    <div
       className={clx(
-        "relative w-full overflow-hidden p-4 bg-ui-bg-subtle shadow-elevation-card-rest rounded-large group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150",
+        "relative w-full overflow-hidden transition-shadow ease-in-out duration-150",
         className,
         {
           "aspect-[11/14]": isFeatured,
           "aspect-[9/16]": !isFeatured && size !== "square",
           "aspect-[1/1]": size === "square",
-          "w-[180px]": size === "small",
-          "w-[290px]": size === "medium",
-          "w-[440px]": size === "large",
-          "w-full": size === "full",
         }
       )}
       data-testid={dataTestid}
     >
+      {/* Primary Image */}
       <ImageOrPlaceholder image={initialImage} size={size} />
+      
+      {/* Secondary Image on Hover */}
       {images && images.length > 1 && (
-        <div className="absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 z-10">
+        <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100 z-10">
           <ImageOrPlaceholder image={images[1].url} size={size} />
         </div>
       )}
-    </Container>
+    </div>
   )
 }
 

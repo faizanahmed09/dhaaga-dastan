@@ -80,7 +80,7 @@ const RefinementList = ({ sortBy, 'data-testid': dataTestId }: RefinementListPro
   }
 
   return (
-    <div className="flex small:flex-col gap-12 py-4 mb-8 small:px-0 pl-6 small:min-w-[300px] small:ml-[1.675rem]">
+    <div className="flex small:flex-col gap-12 py-4 mb-8 small:px-0 pl-6 small:min-w-[280px] small:mr-16">
       <div className="w-full small:w-auto flex flex-col small:block pr-6 small:pr-0">
         <div className="flex items-center justify-between small:block">
           <SortProducts sortBy={sortBy} setQueryParams={setQueryParams} data-testid={dataTestId} />
