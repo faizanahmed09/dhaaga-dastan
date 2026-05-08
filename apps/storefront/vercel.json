@@ -1,0 +1,6 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "cd ../.. && npx turbo build --filter=@dtc/storefront",
+  "installCommand": "npm install --prefix=../.. --no-fund --no-audit",
+  "outputDirectory": ".next"
+}

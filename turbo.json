@@ -3,7 +3,19 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".medusa/server/**", ".next/**", "dist/**"]
+      "outputs": [".medusa/server/**", ".next/**", "dist/**"],
+      "env": [
+        "NODE_ENV",
+        "NEXT_PUBLIC_MEDUSA_BACKEND_URL",
+        "NEXT_PUBLIC_BASE_URL",
+        "NEXT_PUBLIC_DEFAULT_REGION",
+        "DATABASE_URL",
+        "STORE_CORS",
+        "ADMIN_CORS",
+        "AUTH_CORS",
+        "JWT_SECRET",
+        "COOKIE_SECRET"
+      ]
     },
     "dev": {
       "cache": false,
