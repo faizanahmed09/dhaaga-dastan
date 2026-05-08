@@ -40,6 +40,10 @@ export const listCollections = async (
       }
     )
     .then(({ collections }) => ({ collections, count: collections.length }))
+    .catch((error) => {
+      console.error("Error fetching collections:", error)
+      throw error
+    })
 }
 
 export const getCollectionByHandle = async (

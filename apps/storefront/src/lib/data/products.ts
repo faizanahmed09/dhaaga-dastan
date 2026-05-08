@@ -83,6 +83,10 @@ export const listProducts = async ({
         queryParams,
       }
     })
+    .catch((error) => {
+      console.error("Error fetching products:", error)
+      throw error
+    })
 }
 
 /**

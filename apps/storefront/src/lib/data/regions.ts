@@ -16,6 +16,10 @@ export const listRegions = async () => {
       cache: "force-cache",
     })
     .then(({ regions }) => regions)
+    .catch((error) => {
+      console.error("Error fetching regions:", error)
+      throw error
+    })
 }
 
 export const retrieveRegion = async (id: string) => {
@@ -30,6 +34,10 @@ export const retrieveRegion = async (id: string) => {
       cache: "force-cache",
     })
     .then(({ region }) => region)
+    .catch((error) => {
+      console.error("Error fetching region:", error)
+      throw error
+    })
 }
 
 const regionMap = new Map<string, HttpTypes.StoreRegion>()
