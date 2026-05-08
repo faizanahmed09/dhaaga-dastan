@@ -1,0 +1,231 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --brand-primary: #1A1A1A;
+  --brand-secondary: #8C2131;
+  --brand-accent: #D4AF37;
+  --brand-background: #FAF9F6;
+  --brand-surface: #F5EEEB;
+}
+
+[data-theme='minimal'] {
+  --brand-primary: #000000;
+  --brand-secondary: #4A4A4A;
+  --brand-accent: #000000;
+  --brand-background: #FFFFFF;
+  --brand-surface: #F5F5F5;
+}
+
+[data-theme='luxury'] {
+  --brand-primary: #2C2C2C;
+  --brand-secondary: #9C835F;
+  --brand-accent: #D4AF37;
+  --brand-background: #F9F5F0;
+  --brand-surface: #E8E2D9;
+}
+
+[data-theme='pastel'] {
+  --brand-primary: #5D4D4D;
+  --brand-secondary: #E91E63;
+  --brand-accent: #F48FB1;
+  --brand-background: #FFF0F5;
+  --brand-surface: #FCE4EC;
+}
+
+[data-theme='dark'] {
+  --brand-primary: #FFFFFF;
+  --brand-secondary: #A0A0A0;
+  --brand-accent: #E0E0E0;
+  --brand-background: #121212;
+  --brand-surface: #1E1E1E;
+}
+
+[data-theme='brown'] {
+  --brand-primary: #3E2723;
+  --brand-secondary: #795548;
+  --brand-accent: #A1887F;
+  --brand-background: #EFEBE9;
+  --brand-surface: #D7CCC8;
+}
+
+[data-theme='nude'] {
+  --brand-primary: #4E342E;
+  --brand-secondary: #8D6E63;
+  --brand-accent: #BCAAA4;
+  --brand-background: #FDF5E6;
+  --brand-surface: #F5DEB3;
+}
+
+* {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, fill 0.5s ease;
+}
+
+body {
+  background-color: var(--brand-background);
+  color: var(--brand-primary);
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply -translate-y-2 text-xsmall-regular;
+  }
+
+  input:focus ~ label {
+    @apply left-0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid #212121;
+    -webkit-text-fill-color: #212121;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+
+  /* Custom animations for clothing store */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.6s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  /* Staggered animation for product cards */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-[1440px] w-full mx-auto px-6;
+  }
+
+  .contrast-btn {
+    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+  }
+
+  .text-xsmall-regular {
+    @apply text-[10px] leading-4 font-normal;
+  }
+
+  .text-small-regular {
+    @apply text-xs leading-5 font-normal;
+  }
+
+  .text-small-semi {
+    @apply text-xs leading-5 font-semibold;
+  }
+
+  .text-base-regular {
+    @apply text-sm leading-6 font-normal;
+  }
+
+  .text-base-semi {
+    @apply text-sm leading-6 font-semibold;
+  }
+
+  .text-large-regular {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .text-large-semi {
+    @apply text-base leading-6 font-semibold;
+  }
+
+  .text-xl-regular {
+    @apply text-2xl leading-[36px] font-normal;
+  }
+
+  .text-xl-semi {
+    @apply text-2xl leading-[36px] font-semibold;
+  }
+
+  .text-2xl-regular {
+    @apply text-[30px] leading-[48px] font-normal;
+  }
+
+  .text-2xl-semi {
+    @apply text-[30px] leading-[48px] font-semibold;
+  }
+
+  .text-3xl-regular {
+    @apply text-[32px] leading-[44px] font-normal;
+  }
+
+  .text-3xl-semi {
+    @apply text-[32px] leading-[44px] font-semibold;
+  }
+
+  /* Hani Button - Modern Animation */
+  .ani-btn {
+    @apply relative overflow-hidden transition-all duration-500 ease-in-out;
+  }
+  
+  .ani-btn::before {
+    content: '';
+    @apply absolute top-0 left-0 w-0 h-full bg-white/20 transition-all duration-500 ease-in-out z-0;
+  }
+  
+  .ani-btn:hover::before {
+    @apply w-full;
+  }
+
+  .ani-btn-dark::before {
+    @apply bg-brand-primary;
+  }
+
+  .ani-btn:active {
+    @apply scale-95;
+  }
+}
+
