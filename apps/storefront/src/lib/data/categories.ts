@@ -24,6 +24,10 @@ export const listCategories = async (query?: Record<string, unknown>) => {
       }
     )
     .then(({ product_categories }) => product_categories)
+    .catch((error) => {
+      console.error("Error fetching categories:", error)
+      throw error
+    })
 }
 
 export const getCategoryByHandle = async (categoryHandle: string[]) => {
@@ -46,4 +50,8 @@ export const getCategoryByHandle = async (categoryHandle: string[]) => {
       }
     )
     .then(({ product_categories }) => product_categories[0])
+    .catch((error) => {
+      console.error("Error fetching category by handle:", error)
+      throw error
+    })
 }
