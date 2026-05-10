@@ -16,6 +16,7 @@ module.exports = defineConfig({
   },
   admin: {
     disable: !!process.env.RAILWAY_PROJECT_ID || process.env.DISABLE_MEDUSA_ADMIN === "true",
+    path: "/admin",
   },
   modules: [
     {
