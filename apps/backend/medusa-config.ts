@@ -7,14 +7,14 @@ module.exports = defineConfig({
     databaseUrl: process.env.DATABASE_URL,
     redisUrl: process.env.REDIS_URL,
     cookieOptions: {
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+      secure: true,
       httpOnly: true,
     },
     http: {
-      storeCors: "https://dhaaga-dastan.vercel.app",
-      adminCors: "https://dhaaga-dastan-backend.vercel.app",
-      authCors: "https://dhaaga-dastan-backend.vercel.app",
+      storeCors: "https://dhaaga-dastan.vercel.app,https://dhaaga-dastan-backend.vercel.app",
+      adminCors: "https://dhaaga-dastan-backend.vercel.app,https://dhaaga-dastan.vercel.app",
+      authCors: "https://dhaaga-dastan-backend.vercel.app,https://dhaaga-dastan.vercel.app",
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
