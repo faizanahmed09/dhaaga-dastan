@@ -12,9 +12,9 @@ module.exports = defineConfig({
       httpOnly: true,
     },
     http: {
-      storeCors: (() => { const re = /.*/; (re as any).split = () => [re]; return re as any; })(),
-      adminCors: (() => { const re = /.*/; (re as any).split = () => [re]; return re as any; })(),
-      authCors: (() => { const re = /.*/; (re as any).split = () => [re]; return re as any; })(),
+      storeCors: "/.*/",
+      adminCors: "/.*/",
+      authCors: "/.*/",
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
