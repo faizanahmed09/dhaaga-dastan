@@ -12,9 +12,9 @@ module.exports = defineConfig({
       httpOnly: true,
     },
     http: {
-      storeCors: process.env.STORE_CORS || "",
-      adminCors: process.env.ADMIN_CORS || "",
-      authCors: "*",
+      storeCors: "https://dhaaga-dastan.vercel.app",
+      adminCors: "https://dhaaga-dastan-backend.vercel.app",
+      authCors: "https://dhaaga-dastan-backend.vercel.app",
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
