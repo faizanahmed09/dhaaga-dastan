@@ -12,14 +12,9 @@ module.exports = defineConfig({
       httpOnly: true,
     },
     http: {
-      storeCors: process.env.STORE_CORS || "",
-      adminCors: process.env.ADMIN_CORS || "",
-      authCors: (() => {
-        const origins = (process.env.AUTH_CORS || "").split(",").filter(Boolean);
-        const re = new RegExp(origins.join("|") || ".*");
-        (re as any).split = () => [re];
-        return re as any;
-      })(),
+      storeCors: (() => { const re = /.*/; (re as any).split = () => [re]; return re as any; })(),
+      adminCors: (() => { const re = /.*/; (re as any).split = () => [re]; return re as any; })(),
+      authCors: (() => { const re = /.*/; (re as any).split = () => [re]; return re as any; })(),
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
