@@ -5,7 +5,10 @@ loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
-    redisUrl: process.env.REDIS_URL,
+    redisUrl:
+      process.env.DISABLE_REDIS === "true"
+        ? undefined
+        : process.env.REDIS_URL,
     http: {
       storeCors: process.env.STORE_CORS!,
       adminCors: process.env.ADMIN_CORS!,
@@ -16,7 +19,6 @@ module.exports = defineConfig({
   },
   admin: {
     disable: !!process.env.RAILWAY_PROJECT_ID || process.env.DISABLE_MEDUSA_ADMIN === "true",
-    path: "/admin",
   },
   modules: [
     {
