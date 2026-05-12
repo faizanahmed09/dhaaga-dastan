@@ -9,6 +9,11 @@ module.exports = defineConfig({
       process.env.DISABLE_REDIS === "true"
         ? undefined
         : process.env.REDIS_URL,
+    cookieOptions: {
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+    },
     http: {
       storeCors: process.env.STORE_CORS!,
       adminCors: process.env.ADMIN_CORS!,
