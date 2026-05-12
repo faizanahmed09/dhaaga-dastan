@@ -2,6 +2,14 @@
   "outputDirectory": ".medusa/server/public",
   "rewrites": [
     {
+      "source": "/app/assets/:path*",
+      "destination": "/admin/assets/:path*"
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "/admin/index.html"
+    },
+    {
       "source": "/admin/:path*",
       "destination": "/admin/index.html"
     }
@@ -9,7 +17,12 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/admin",
+      "destination": "/app",
+      "permanent": true
+    },
+    {
+      "source": "/admin",
+      "destination": "/app",
       "permanent": true
     }
   ]
